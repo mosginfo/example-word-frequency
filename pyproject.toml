@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=77.0.3", "setuptools-scm>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "example-word-frequency"
+description = "CLI utility for counting word frequencies."
+readme = "README.md"
+license = "BSD-2-Clause"
+license-files = [
+    "LICEN[CS]E*",
+]
+authors = [
+    {name = "Kirill Vercetti", email = "office@kyzima-spb.com"},
+]
+requires-python = ">=3.9"
+dependencies = [
+    "rich>=14",
+]
+keywords = [
+    "word frequencies tool",
+]
+dynamic = ["version"]
+
+[project.urls]
+Home = "https://github.com/mosginfo/example-word-frequency"
+Repository = "https://github.com/mosginfo/example-word-frequency.git"
+Issues = "https://github.com/mosginfo/example-word-frequency/issues"
+
+[project.scripts]
+word-frequency = "example_word_frequency.cli:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "mypy",
+]
+
+[tool.setuptools.package-data]
+"example_word_frequency.resources" = ["*"]
+
+[tool.mypy]
+files = ["src/example_word_frequency"]
+python_version = "3.9"
+strict = true
+disallow_subclassing_any = false
+
+[tool.setuptools_scm]
+local_scheme = "no-local-version"
+fallback_version = "0.0.0"
